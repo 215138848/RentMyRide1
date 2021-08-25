@@ -6,12 +6,14 @@
 */
 package za.ac.cput.service;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Car;
 import za.ac.cput.repository.car.CarRepository;
 import za.ac.cput.service.car.ICarService;
 
 import java.util.Set;
 
+@Service
 public class CarService implements ICarService {
     private static CarService service = null;
     private CarRepository repository = null;

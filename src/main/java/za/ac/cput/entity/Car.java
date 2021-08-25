@@ -14,6 +14,8 @@ public class Car {
     private String location;
     private boolean rented;
 
+    public Car() {};
+
     public Car(Builder builder) {
         this.numberPlate = builder.numberPlate;
         this.color = builder.color;
