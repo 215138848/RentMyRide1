@@ -13,4 +13,5 @@ import java.util.Set;
 
 public interface IClientService extends IService<Client,String> {
     Set<Client> getAll();
+     //Client getAllClientsGivenName(String name);
 }

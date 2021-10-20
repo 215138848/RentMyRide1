@@ -8,7 +8,10 @@ package za.ac.cput.entity;
 public class ClientAccount
 {
     private String accountNum, numBorrowed;
+private ClientAccount()
+{
 
+}
     private ClientAccount(Builder builder) {
         this.accountNum = builder.accountNum;
         this.numBorrowed = builder.numBorrowed;
