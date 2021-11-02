@@ -1,15 +1,17 @@
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.ClientAccount;
 import za.ac.cput.factory.ClientAccountFactory;
 import za.ac.cput.service.ClientAccountService;
 
+
 import java.util.Set;
 @RestController
+@Controller
 @RequestMapping ("/client")
 
 
@@ -19,11 +21,7 @@ public class ClientAccountController {
     private ClientAccountService service;
 
     @PostMapping("/create")
-//public String create(ClientAccount clientAccount)
-//    {
-//        return "account created";
-//    }
-
+    @ResponseStatus(HttpStatus.CREATED)
     public ClientAccount create(@RequestBody ClientAccount accountNum)
     {
         ClientAccount newAccount = ClientAccountFactory.createClientAccount(accountNum.getAccountNum(), accountNum.getNumBorrowed());
@@ -37,13 +35,13 @@ public class ClientAccountController {
     @PostMapping("/update")
     public ClientAccount update (@RequestBody ClientAccount accountNum)
     {
-       return service.update(accountNum);
+        return service.update(accountNum);
     }
-   @DeleteMapping("/delete/{accountNum}")
-   public boolean delete(@PathVariable String accountNum)
-   {
-      return service.delete(accountNum);
-   }
+    @DeleteMapping("/delete/{accountNum}")
+    public boolean delete(@PathVariable String accountNum)
+    {
+        return service.delete(accountNum);
+    }
 //    public String ClientAccount(@RequestBody ClientAccount account)
 //    {
 //        if (service.delete(account.getAccountNum()))
